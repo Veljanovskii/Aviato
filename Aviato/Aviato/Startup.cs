@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Aviato.Models;
+using Microsoft.Extensions.Options;
 
 namespace Aviato
 {
@@ -24,6 +26,12 @@ namespace Aviato
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.Configure<DatabaseSettings>(
+            Configuration.GetSection(nameof(DatabaseSettings)));
+
+            services.AddSingleton<IDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
