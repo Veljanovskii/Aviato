@@ -61,6 +61,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
+textarea {
+  resize: none;
+  height: 80px !important;
+}
+
 ol, ul {
   margin: 0;
   padding: 0;
@@ -89,16 +94,18 @@ blockquote {
   background: #000;
 }
 
-input[type="email"], input[type="password"], input[type="text"], input[type="tel"] {
+input[type="email"], input[type="password"], input[type="text"], input[type="tel"], select {
   border-radius: 0;
   box-shadow: none;
   height: 45px;
+  width: 100%;
   outline: none;
   font-weight: 200;
   font-size: 12px;
+  border: 1px solid #ccc;
 }
 
-input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focus, input[type="tel"]:focus {
+input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focus, input[type="tel"]:focus, select:focus {
   box-shadow: none;
   border: 1px solid #000;
 }
@@ -677,25 +684,26 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   }
 }
 
-.top-header .contact-number {
-  font-size: 12px;
+.top-header .add-product > a {
   color: #333;
+  font-size: 15px;
+  padding: 0 8px;
 }
 
 @media (max-width: 480px) {
-  .top-header .contact-number {
+  .top-header .add-product {
     text-align: center;
   }
 }
 
 @media (max-width: 768px) {
-  .top-header .contact-number {
+  .top-header .add-product {
     text-align: center;
     padding: 10px 0;
   }
 }
 
-.top-header .contact-number i {
+.top-header .add-product i {
   margin-right: 4px;
   font-size: 18px;
   vertical-align: middle;
@@ -1062,6 +1070,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 
 .product-item {
   margin-bottom: 30px;
+  height: 413px;
 }
 
 .product-item .product-thumb {
@@ -1089,7 +1098,6 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   transition: .3s all;
   opacity: 0;
   background: rgba(0, 0, 0, 0.6);
-  content: '';
   position: absolute;
   top: 0;
   right: 0;
@@ -2052,7 +2060,8 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   margin-bottom: 8px;
 }
 
-.widget.widget-subscription .form-group input {
+.widget.widget-subscription .form-group input,
+.widget.widget-subscription .form-group select {
   font-size: 12px;
   font-weight: 200;
   height: 45px;
@@ -2266,7 +2275,10 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   margin-bottom: 20px;
 }
 
-.account .block form input[type="email"], .account .block form input[type="password"], .account .block form input[type="text"] {
+.account .block form input[type="email"], 
+.account .block form input[type="password"], 
+.account .block form input[type="text"],
+.account .block form select {
   border-radius: 0;
   box-shadow: none;
 }
@@ -2305,7 +2317,8 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   width: 85px;
 }
 
-.checkout-form .form-group input {
+.checkout-form .form-group input,
+.checkout-form .form-group select {
   border-radius: 0;
   display: block;
   padding: 6px 10px 5px 100px;
@@ -2540,6 +2553,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 
 .contact-form input:hover,
 .contact-form textarea:hover,
+.contact-form select:hover,
 .contact-form #contact-submit:hover {
   border-color: #000;
 }
@@ -2554,7 +2568,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   border-radius: 0;
 }
 
-.contact-form textarea.form-control {
+.contact-form textarea .form-control {
   padding: 10px;
   height: 120px !important;
   outline: none;

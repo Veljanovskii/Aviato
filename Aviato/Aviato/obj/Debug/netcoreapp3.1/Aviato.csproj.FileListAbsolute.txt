@@ -45,3 +45,4 @@ C:\Users\Nenad\Desktop\Repos\Aviato\Aviato\Aviato\bin\Debug\netcoreapp3.1\runtim
 C:\Users\Nenad\Desktop\Repos\Aviato\Aviato\Aviato\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
 C:\Users\Nenad\Desktop\Repos\Aviato\Aviato\Aviato\obj\Debug\netcoreapp3.1\Aviato.csproj.CoreCompileInputs.cache
 C:\Users\Nenad\Desktop\Repos\Aviato\Aviato\Aviato\obj\Debug\netcoreapp3.1\Aviato.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Nenad\Desktop\Repos\Aviato\Aviato\Aviato\obj\Debug\netcoreapp3.1\Razor\Pages\Add.cshtml.g.cs

@@ -10,15 +10,20 @@ namespace Aviato.Models
     public class Product
     {
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]         //to allow passing the parameter as type string instead of an ObjectId. Mongo handles the conversion from string to ObjectId.
+        [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
         [BsonElement("Name")]
         public string Name { get; set; }
-        public decimal Price { get; set; }
-        /*
-         category
-
-         */
+        [BsonElement("Price")]
+        public double Price { get; set; }
+        [BsonElement("Category")]
+        public string Category { get; set; }
+        [BsonElement("Colour")]
+        public string Colour { get; set; }
+        [BsonElement("Details")]
+        public string Details { get; set; }
+        [BsonElement("Brand")]
+        public string Brand { get; set; }
     }
 }
