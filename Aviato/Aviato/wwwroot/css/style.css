@@ -1248,6 +1248,10 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   }
 }
 
+.product-price {
+  font-size: 40px;
+}
+
 .product-modal .modal-content .modal-body .product-short-details .product-price {
   font-size: 30px;
   margin: 20px 0;
@@ -1478,6 +1482,12 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   font-size: 13px;
   font-weight: 600;
   display: inline-block;
+}
+
+.product-stuff {
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 15px;
 }
 
 .single-product-details .product-category ul {
@@ -2358,6 +2368,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 
 .shopping.cart .product-list .product-remove {
   color: #c7254e;
+  border-radius: 0;
 }
 
 .shopping.cart .account-details {

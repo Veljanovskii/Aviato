@@ -14,32 +14,28 @@ namespace Aviato.Pages
 {
     public class IndexModel : PageModel
     {
-        //private readonly ILogger<IndexModel> _logger;
-        private readonly IMongoCollection<Product> _products;
+        private readonly IMongoCollection<Product> collection;
 
         public IList<Product> products { get; set; }
-
-        public Product lmao { get; set; }
 
         public IndexModel(IDatabaseSettings settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
-
-            _products = database.GetCollection<Product>("Products");
+            collection = database.GetCollection<Product>("Products");
 
             products = new List<Product>();
         }
 
         public async Task OnGetAsync()
         {
-            products = await (await _products.FindAsync(_ => true)).ToListAsync();
+            products = await (await collection.FindAsync(_ => true)).ToListAsync();
             Helper.Shuffle(products);
         }
 
         public async Task OnGetCategoryAsync(string category)
         {
-            products = await (await _products.FindAsync(p => p.Category == category)).ToListAsync();
+            products = await (await collection.FindAsync(p => p.Category == category)).ToListAsync();
         }
         
     }
