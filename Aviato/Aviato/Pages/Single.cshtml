@@ -28,12 +28,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-xs-12 col-sm-4">
-                    <div class="add-product">
-                        <a asp-page="Add">
-                            <i class="tf-ion-android-add"></i>Add product
-                        </a>
-                    </div>
+                    <ul class="top-menu text-left list-inline">
+                        <li>
+                            <a asp-page="Add">
+                                <i class="tf-ion-android-add"></i>Add product
+                            </a>
+                        </li>
+
+                        <li>
+                            <form method="post">
+                                <button class="remove-border" type="submit" asp-page-handler="Remove" asp-route-id="@Model.product.Id">
+                                    <i class="tf-ion-android-remove"></i> Remove product
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
                 </div>
+
                 <div class="col-md-4 col-xs-12 col-sm-4">
                     <div class="logo text-center">
                         <a asp-page="Index">

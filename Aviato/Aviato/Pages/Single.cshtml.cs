@@ -49,5 +49,17 @@ namespace Aviato.Pages
             return Redirect("Single?id=" + product.Id);
         }
 
+        public IActionResult OnPostRemove()
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.Page();
+            }
+
+            collection.DeleteOne(p => p.Id == product.Id);
+
+            return RedirectToPage("Index");
+        }
+
     }
 }

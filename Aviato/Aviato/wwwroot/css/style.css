@@ -688,6 +688,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   color: #333;
   font-size: 15px;
   padding: 0 8px;
+  display: block;
 }
 
 @media (max-width: 480px) {
@@ -748,10 +749,17 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   display: inline-block;
 }
 
+.remove-border {
+  border: none;
+  background: none;
+  font-size: 15px;
+  padding: 0px 8px;
+}
+
 .cart-dropdown .media {
-  position: relative;
-  border-bottom: 1px solid #dedede;
-  padding-bottom: 15px;
+    position: relative;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 15px;
 }
 
 .cart-dropdown .media .pull-left {
