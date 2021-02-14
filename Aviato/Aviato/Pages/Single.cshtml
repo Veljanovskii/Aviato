@@ -29,12 +29,13 @@
             <div class="row">
                 <div class="col-md-4 col-xs-12 col-sm-4">
                     <ul class="top-menu text-left list-inline">
+                        @if (Model.Employee != null)
+                        {
                         <li>
                             <a asp-page="Add">
                                 <i class="tf-ion-android-add"></i>Add product
                             </a>
                         </li>
-
                         <li>
                             <form method="post">
                                 <button class="remove-border" type="submit" asp-page-handler="Remove" asp-route-id="@Model.product.Id">
@@ -42,6 +43,7 @@
                                 </button>
                             </form>
                         </li>
+                        }
                     </ul>
                 </div>
 
@@ -65,15 +67,24 @@
 
                 <div class="col-md-4 col-xs-12 col-sm-4">
                     <ul class="top-menu text-right list-inline">
-                        <li>
-                            <a asp-page="Cart">
-                                <i class="tf-ion-android-cart"></i>Cart
-                            </a>
-                        </li>
+                        @if (Model.Employee == null)
+                        {
+                            <li>
+                                <a asp-page="Cart">
+                                    <i class="tf-ion-android-cart"></i>Cart
+                                </a>
+                            </li>
 
-                        <li>
-                            <a asp-page="Login">Login</a>
-                        </li>
+                            <li>
+                                <a asp-page="Login">Login</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a asp-page="Logout">Logout</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -157,9 +168,12 @@
                         </ul>
                         <div class="product-stuff">Colour: @Model.product.Colour</div>
                         <div class="product-stuff">Category: @Model.product.Category</div>
+                        @if (Model.Employee == null)
+                        {
                         <form method="post">
                             <button type="submit" asp-route-id="@Model.product.Id" asp-page-handler="Add" class="btn btn-main mt-20">Add To Cart</button>
                         </form>
+                        }
                     </div>
                 </div>
             </div>

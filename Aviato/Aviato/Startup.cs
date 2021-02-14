@@ -27,6 +27,8 @@ namespace Aviato
         {
             services.AddRazorPages();
 
+            services.AddSession();
+
             services.Configure<DatabaseSettings>(
             Configuration.GetSection(nameof(DatabaseSettings)));
 
@@ -52,6 +54,8 @@ namespace Aviato
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseAuthorization();
 

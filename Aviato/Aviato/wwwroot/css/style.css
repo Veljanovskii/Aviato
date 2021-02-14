@@ -2377,6 +2377,8 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 .shopping.cart .product-list .product-remove {
   color: #c7254e;
   border-radius: 0;
+  border: none;
+  background: none;
 }
 
 .shopping.cart .account-details {

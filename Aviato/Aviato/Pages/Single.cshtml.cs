@@ -17,6 +17,7 @@ namespace Aviato.Pages
         public Product product { get; set; }
         [BindProperty]
         public List<Product> related { get; set; }
+        public Employee Employee { get; set; }
 
         public SingleModel(IDatabaseSettings settings)
         {
@@ -35,6 +36,8 @@ namespace Aviato.Pages
             var gender = product.Category.Split('\'')[0];
             related = await (await collection.FindAsync<Product>(p => p.Category.StartsWith(gender) && p.Id != id)).ToListAsync();
             Helper.Shuffle(related);
+
+            Employee = SessionHelper.GetObjectFromJson<Employee>(HttpContext.Session, "loginEmployee");
         }
 
         public IActionResult OnPostAdd()
@@ -49,14 +52,14 @@ namespace Aviato.Pages
             return Redirect("Single?id=" + product.Id);
         }
 
-        public IActionResult OnPostRemove()
+        public async Task<IActionResult> OnPostRemoveAsync()
         {
             if (!this.ModelState.IsValid)
             {
                 return this.Page();
             }
 
-            collection.DeleteOne(p => p.Id == product.Id);
+            await collection.DeleteOneAsync(p => p.Id == product.Id);
 
             return RedirectToPage("Index");
         }

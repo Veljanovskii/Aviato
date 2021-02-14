@@ -21,22 +21,22 @@ namespace Aviato.Pages
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
             collection = database.GetCollection<Product>("Products");
-
-            //product = new Product();
         }
 
         public void OnGet()
         {
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!this.ModelState.IsValid)
             {
                 return this.Page();
             }
 
-            collection.InsertOne(product);
+            //collection.InsertOne(product);
+
+            await collection.InsertOneAsync(product);
 
             return RedirectToPage("Index");
         }

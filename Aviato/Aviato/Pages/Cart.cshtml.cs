@@ -14,6 +14,7 @@ namespace Aviato.Pages
     {
         private readonly IMongoCollection<Product> collection;
         public List<Product> cart { get; set; }
+        public Employee Employee { get; set; }
 
         public CartModel(IDatabaseSettings settings)
         {
@@ -24,12 +25,19 @@ namespace Aviato.Pages
             cart = new List<Product>();
         }
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
             foreach (string id in CartHelper.Ids)
             {
                 cart.Add(await (await collection.FindAsync<Product>(p => p.Id.Equals(id))).FirstOrDefaultAsync());
             }
+
+            Employee = SessionHelper.GetObjectFromJson<Employee>(HttpContext.Session, "loginEmployee");
+            if (Employee != null)
+            {
+                return Redirect("Index");
+            }
+            return Page();
         }
 
         public IActionResult OnPostDelete(string id)

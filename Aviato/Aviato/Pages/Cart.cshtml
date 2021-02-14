@@ -28,11 +28,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-xs-12 col-sm-4">
-                    <div class="add-product">
-                        <a asp-page="Add">
-                            <i class="tf-ion-android-add"></i>Add product
-                        </a>
-                    </div>
+                    <ul class="top-menu text-left list-inline">
+                        @if (Model.Employee != null)
+                        {
+                            <li>
+                                <a asp-page="Add">
+                                    <i class="tf-ion-android-add"></i>Add product
+                                </a>
+                            </li>
+                        }
+                    </ul>
                 </div>
                 <div class="col-md-4 col-xs-12 col-sm-4">
                     <div class="logo text-center">
@@ -54,15 +59,24 @@
 
                 <div class="col-md-4 col-xs-12 col-sm-4">
                     <ul class="top-menu text-right list-inline">
-                        <li>
-                            <a asp-page="Cart">
-                                <i class="tf-ion-android-cart"></i>Cart
-                            </a>
-                        </li>
+                        @if (Model.Employee == null)
+                        {
+                            <li>
+                                <a asp-page="Cart">
+                                    <i class="tf-ion-android-cart"></i>Cart
+                                </a>
+                            </li>
 
-                        <li>
-                            <a asp-page="Login">Login</a>
-                        </li>
+                            <li>
+                                <a asp-page="Login">Login</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a asp-page="Logout">Logout</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

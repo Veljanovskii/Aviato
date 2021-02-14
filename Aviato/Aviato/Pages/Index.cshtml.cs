@@ -16,7 +16,8 @@ namespace Aviato.Pages
     {
         private readonly IMongoCollection<Product> collection;
 
-        public IList<Product> products { get; set; }
+        public IList<Product> Products { get; set; }
+        public Employee Employee { get; set; }
 
         public IndexModel(IDatabaseSettings settings)
         {
@@ -24,18 +25,22 @@ namespace Aviato.Pages
             var database = client.GetDatabase(settings.DatabaseName);
             collection = database.GetCollection<Product>("Products");
 
-            products = new List<Product>();
+            Products = new List<Product>();
         }
 
         public async Task OnGetAsync()
         {
-            products = await (await collection.FindAsync(_ => true)).ToListAsync();
-            Helper.Shuffle(products);
+            Products = await (await collection.FindAsync(_ => true)).ToListAsync();
+            Helper.Shuffle(Products);
+
+            Employee = SessionHelper.GetObjectFromJson<Employee>(HttpContext.Session, "loginEmployee");
         }
 
         public async Task OnGetCategoryAsync(string category)
         {
-            products = await (await collection.FindAsync(p => p.Category == category)).ToListAsync();
+            Products = await (await collection.FindAsync(p => p.Category == category)).ToListAsync();
+
+            Employee = SessionHelper.GetObjectFromJson<Employee>(HttpContext.Session, "loginEmployee");
         }
         
     }
