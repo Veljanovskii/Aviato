@@ -11,7 +11,7 @@ Molim Vas, podatke iz baze podataka korišćene u ovom projektu dobavite na sled
 * `> db.createCollection('Employees')`
 * `> db.createCollection('Products')`
 * `> db.Employees.insertMany([{'E-mail':'john@doe.com','Password':'john.doe'},{'E-mail':'jane@doe.com','Password':'jane.doe'}])`
-* `> `[Sadržaj ove skripte](https://github.com/Veljanovskii/Aviato/blob/master/script.txt)  
+* `>`[`skripta`](https://github.com/Veljanovskii/Aviato/blob/master/script.txt)
 
 ### Startovanje aplikacije
 
