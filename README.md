@@ -25,7 +25,7 @@ Kao što je navedeno prilikom prijavljivanje projekta, postoje dva tipa korisnik
 Ima funkcionalnosti pregledanja sajta i dodavanja proizvoda u korpu.
 
 * #### Radnik
-Ima funkcionalnosti dodavanja novih proizvoda i brisanja postojećih.  
+Ima funkcionalnosti dodavanja novih proizvoda, menjanja i brisanja postojećih.  
 **Važno.** Za dobijanje funkcionalnosti prodavca neophodno je ulogovati se korišćenjem jednog od navedenih naloga:  
 * "E-mail" : "john<i></i>@doe.com",
 "Password" : "john.doe"  
