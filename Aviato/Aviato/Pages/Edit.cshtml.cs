@@ -10,7 +10,7 @@ using MongoDB.Driver;
 
 namespace Aviato.Pages
 {
-    public class AddModel : PageModel
+    public class EditModel : PageModel
     {
         private readonly IMongoCollection<Product> collection;
 
@@ -18,15 +18,17 @@ namespace Aviato.Pages
         public Product product { get; set; }
         public Employee Employee { get; set; }
 
-        public AddModel(IDatabaseSettings settings)
+        public EditModel(IDatabaseSettings settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
             collection = database.GetCollection<Product>("Products");
         }
 
-        public IActionResult OnGet()
+        public async Task<IActionResult> OnGetAsync(string id)
         {
+            product = await(await collection.FindAsync<Product>(p => p.Id.Equals(id))).FirstOrDefaultAsync();
+
             Employee = SessionHelper.GetObjectFromJson<Employee>(HttpContext.Session, "loginEmployee");
             if (Employee == null)
             {
@@ -36,16 +38,16 @@ namespace Aviato.Pages
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string id)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.Page();
             }
 
-            await collection.InsertOneAsync(product);
+            await collection.ReplaceOneAsync(p => p.Id == id, product);
 
-            return RedirectToPage("Index");
+            return Redirect("Single?id=" + id);
         }
     }
 }

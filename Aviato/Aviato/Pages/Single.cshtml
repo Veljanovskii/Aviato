@@ -12,8 +12,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Construction Html5 Template">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="author" content="Themefisher">
-    <meta name="generator" content="Themefisher Constra HTML Template v1.0">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
     <link rel="stylesheet" href="plugins/themefisher-font/style.css">
     <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
@@ -31,18 +29,18 @@
                     <ul class="top-menu text-left list-inline">
                         @if (Model.Employee != null)
                         {
-                        <li>
-                            <a asp-page="Add">
-                                <i class="tf-ion-android-add"></i>Add product
-                            </a>
-                        </li>
-                        <li>
-                            <form method="post">
-                                <button class="remove-border" type="submit" asp-page-handler="Remove" asp-route-id="@Model.product.Id">
-                                    <i class="tf-ion-android-remove"></i> Remove product
-                                </button>
-                            </form>
-                        </li>
+                            <li>
+                                <a asp-page="Add">
+                                    <i class="tf-ion-android-add"></i>Add product
+                                </a>
+                            </li>
+                            <li>
+                                <form method="post">
+                                    <button class="remove-border" type="submit" asp-page-handler="Remove" asp-route-id="@Model.product.Id">
+                                        <i class="tf-ion-android-remove"></i> Remove product
+                                    </button>
+                                </form>
+                            </li>
                         }
                     </ul>
                 </div>
@@ -81,6 +79,11 @@
                         }
                         else
                         {
+                            <li>
+                                <a asp-page="Edit" asp-route-id="@Model.product.Id">
+                                    <i class="tf-ion-edit"></i>Edit product
+                                </a>
+                            </li>
                             <li>
                                 <a asp-page="Logout">Logout</a>
                             </li>

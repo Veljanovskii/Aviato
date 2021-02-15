@@ -1,0 +1,127 @@
+﻿@page
+@model Aviato.Pages.EditModel
+@{
+    ViewData["Title"] = "Edit product";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Construction Html5 Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/animate/animate.css">
+    <link rel="stylesheet" href="plugins/slick/slick.css">
+    <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="body">
+    <section class="signin-page account">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="block text-center">
+                        <a class="logo" asp-page="Index">
+                            <img src="images/logo.png" alt="">
+                        </a>
+                        <h2 class="text-center">Edit Product</h2>
+                        <form method="post" class="text-left clearfix">
+                            <div class="form-group">
+                                <input asp-for="@Model.product.Name" value="@Model.product.Name" type="text" class="form-control" placeholder="Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="@Model.product.Price" value="@Model.product.Price" type="text" class="form-control" placeholder="Price" required>
+                            </div>
+                            <div class="form-group">
+                                <select asp-for="@Model.product.Category" required>
+                                    <option value="" disabled selected>Select category</option>
+                                    @if (Model.product.Category == "Women's Jackets & Coats")
+                                    {
+                                        <option value="Women's Jackets & Coats" selected>Women's Jackets & Coats</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Women's Jackets & Coats">Women's Jackets & Coats</option>
+                                    }
+                                    @if (Model.product.Category == "Women's Jeans")
+                                    {
+                                        <option value="Women's Jeans" selected>Women's Jeans</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Women's Jeans">Women's Jeans</option>
+                                    }
+                                    @if (Model.product.Category == "Women's Tops")
+                                    {
+                                        <option value="Women's Tops" selected>Women's Tops</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Women's Tops">Women's Tops</option>
+                                    }
+                                    @if (Model.product.Category == "Men's Jackets & Coats")
+                                    {
+                                        <option value="Men's Jackets & Coats" selected>Men's Jackets & Coats</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Men's Jackets & Coats">Men's Jackets & Coats</option>
+                                    }
+                                    @if (Model.product.Category == "Men's Jeans")
+                                    {
+                                        <option value="Men's Jeans" selected>Men's Jeans</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Men's Jeans">Men's Jeans</option>
+                                    }
+                                    @if (Model.product.Category == "Men's Shirts")
+                                    {
+                                        <option value="Men's Shirts" selected>Men's Shirts</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="Men's Shirts">Men's Shirts</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="@Model.product.Colour" value="@Model.product.Colour" type="text" class="form-control" placeholder="Colour" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea asp-for="@Model.product.Details" value="@Model.product.Details" class="form-control" placeholder="Details" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <textarea asp-for="@Model.product.Brand" value="@Model.product.Brand" class="form-control" placeholder="Brand" required></textarea>
+                            </div>
+                            <input asp-for="@Model.product.Id" value="@Model.product.Id" type="hidden" />
+                            <div class="text-center">
+                                <button type="submit" asp-route-id="@Model.product.Id" class="btn btn-main text-center">Edit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="plugins/jquery/dist/jquery.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="plugins/instafeed/instafeed.min.js"></script>
+    <script src="plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+    <script src="plugins/syo-timer/build/jquery.syotimer.min.js"></script>
+
+    <script src="plugins/slick/slick.min.js"></script>
+    <script src="plugins/slick/slick-animation.min.js"></script>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
+

@@ -37,6 +37,7 @@ namespace Aviato.Pages
             {
                 return Redirect("Index");
             }
+
             return Page();
         }
 
